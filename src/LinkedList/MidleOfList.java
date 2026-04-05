@@ -1,0 +1,38 @@
+package LinkedList;
+
+import java.util.LinkedList;
+
+public class MidleOfList {
+    public static void main(String[] args) {
+
+
+    }
+
+      ListNode middleNode(LinkedList ll, ListNode head) {
+        int length = 0;
+        ListNode temp = head;
+        while(temp != null){
+            temp = temp.next;
+            length ++;
+        }
+        temp = head;
+        for(int i=1; i<=length/2; i++){
+            temp = temp.next;
+
+        }
+        return temp;
+    }
+
+    public static  ListNode middleNode2(ListNode head){
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while (fast!=null && fast.next!=null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow.next;
+    }
+
+}
+
