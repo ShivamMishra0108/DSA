@@ -2,15 +2,6 @@ package BinaryTrees;
 
 import java.util.*;
 
-class Node{
-    int val;
-    Node left;
-    Node right;
-    Node (int val) {
-        this.val = val;
-    }
-}
-
 
 class Pair{
     int level;
