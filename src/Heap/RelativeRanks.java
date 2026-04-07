@@ -12,6 +12,9 @@ class pair implements Comparable<pair>{
         this.idx = idx;
     }
     public int compareTo(pair p){
+        if(this.num == p.num){
+            return Integer.compare(this.idx,p.idx);
+        }
         return Integer.compare(this.num,p.num);
     }
 }
