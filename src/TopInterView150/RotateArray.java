@@ -13,7 +13,7 @@ public class RotateArray {
 
     }
 
-    static void rotate0(int [] nums  , int k) {
+    static void rotate0(int [] nums, int k) {
 
         int n = nums.length;
         while(k>0){
@@ -45,6 +45,5 @@ public class RotateArray {
             i++;
             j--;
         }
-
     }
 }
