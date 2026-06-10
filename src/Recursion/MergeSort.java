@@ -13,14 +13,15 @@ public class MergeSort {
     }
 
     private static void mergeSort(int[] arr) {
-        //Step 1: make two empty arrays of n/2 size:
 
+
+        //Step 1: make two empty arrays of n/2 size:
         int n=arr.length;
         if(n==1)return;
         int [] a = new int[n/2];
         int [] b = new int [n-n/2];
 
-        // Step 2: copy and paste arr in a  b:
+        // Step 2: copy and paste arr in a and  b:
 
         int idx = 0;
         for(int i=0; i<a.length; i++)a[i] = arr[idx++];
