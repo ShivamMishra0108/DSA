@@ -11,7 +11,6 @@ public class BSTtoMaxHeap {
         inorder(root,arr);
         postorder(root,arr);
 
-
     }
 
     public static void postorder(Node root, ArrayList<Integer> ar){

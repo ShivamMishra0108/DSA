@@ -1,10 +1,10 @@
 package Heap;
 
-
+import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
 
-class SmallestRangeCverAllList {
+class SmallestRangeCoverAllList {
 
     public class Triplet implements Comparable<Triplet>{
         int ele;
@@ -21,7 +21,46 @@ class SmallestRangeCverAllList {
         }
 
     }
-    public int[] smallestRange(int [][] arr) {
+
+
+    public int[] smallestRange(List<List<Integer>> arr){
+
+        int k = arr.size();
+        PriorityQueue<Triplet> pq = new PriorityQueue<>();
+        int max = Integer.MIN_VALUE, min = Integer.MAX_VALUE;
+
+        for(int i=0; i<k; i++){
+            int val = arr.get(i).get(0);
+            max = Math.max(max,val);
+            min = Math.min(min,val);
+            pq.add(new Triplet(val,i,0));
+        }
+
+        int a = min;
+        int b = max;
+
+        while(pq.size() == k){
+            Triplet top = pq.remove();
+            int ele = top.ele, row=top.row, col=top.col;
+
+            if(max-ele < b-a){
+                a=ele;
+                b=max;
+            }
+
+            if(col + 1 >= arr.get(row).size()) break;
+            int next = arr.get(row).get(col+1);
+            max = Math.max(max, next);
+            pq.add(new Triplet(next,row,col+1));
+
+        }
+
+        int [] ans = {a,b};
+        return ans;
+    }
+
+
+    public ArrayList<Integer> findSmallestRange(int[][] arr) {
 
         int k = arr.length, n = arr[0].length;
         PriorityQueue<Triplet> pq = new PriorityQueue<>();
@@ -50,14 +89,11 @@ class SmallestRangeCverAllList {
             pq.add(new Triplet(next,row,col+1));
         }
 
-        int [] ans = new int[2];
+        ArrayList<Integer> ans = new ArrayList<>();
 
-        ans[0] = a;
-        ans[1] = b;
+        ans.add(a);
+        ans.add(b);
 
         return ans;
-
-
-
     }
 }

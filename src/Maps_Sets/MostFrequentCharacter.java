@@ -20,13 +20,15 @@ public class MostFrequentCharacter {
         }
 
         int maxFreq=0;
+        for(char ch: hm.keySet()){
+            int freq = hm.get(ch);
+            if(freq>maxFreq) maxFreq=freq;
+        }
         char ans = s.charAt(0);
         for(char ch: hm.keySet()){
             int freq = hm.get(ch);
-            if(freq>maxFreq) {
-                maxFreq=freq;
+            if(freq==maxFreq && ch<=ans)
                 ans = ch;
-            }
         }
         return ans;
 
