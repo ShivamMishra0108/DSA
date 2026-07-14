@@ -2,54 +2,55 @@ package Maps_Sets;
 import java.util.*;
 
 class Pair{
-    Node node;
+    TreeNode node;
     int dist;
-    Pair(Node node, int dist){
+    Pair(TreeNode node, int dist){
         this.node = node;
         this.dist = dist;
     }
 }
 
-public class BurningTree {
-    static Node start;
-    static HashMap<Node, Node> parent;
-    public int amountOfTime(Node root, int target) {
+
+class Solution {
+    static TreeNode start;
+    static HashMap<TreeNode, TreeNode> parent;
+    public int amountOfTime(TreeNode root, int target) {
 
         start = null;
         parent = new HashMap<>();
         dfs(root, target);
 
         Queue<Pair> q = new LinkedList<>();
-        HashSet<Node> burnt = new HashSet<>();
+        HashSet<TreeNode> burnt = new HashSet<>();
         q.add(new Pair(start,0));
         burnt.add(start);
         int time = 0;
 
         while(q.size()>0){
             Pair front = q.remove();
-            Node node = front.node;
+            TreeNode n = front.node;
             int dist = front.dist;
             time = Math.max(time,dist);
 
 
-            if(node.left != null && !burnt.contains(node.left)){
-                q.add(new Pair(node.left,dist+1));
-                burnt.add(node.left);
+            if(n.left != null && !burnt.contains(n.left)){
+                q.add(new Pair(n.left,dist+1));
+                burnt.add(n.left);
             }
-            if(node.right != null && !burnt.contains(node.right)){
-                q.add(new Pair(node.right,dist+1));
-                burnt.add(node.right);
+            if(n.right != null && !burnt.contains(n.right)){
+                q.add(new Pair(n.right,dist+1));
+                burnt.add(n.right);
             }
-            if(parent.containsKey(node) && !burnt.contains(parent.get(node))){
-                q.add(new Pair(parent.get(node),dist+1));
-                burnt.add(parent.get(node));
+            if(parent.containsKey(n) && !burnt.contains(parent.get(n))){
+                q.add(new Pair(parent.get(n),dist+1));
+                burnt.add(parent.get(n));
             }
         }
 
         return time;
     }
 
-    private void dfs(Node root, int target) {
+    private void dfs(TreeNode root, int target) {
         if(root == null)return;
         if(root.val == target) start = root;
         if(root.left != null) parent.put(root.left,root);
