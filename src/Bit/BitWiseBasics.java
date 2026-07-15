@@ -11,5 +11,13 @@ public class BitWiseBasics {
 
         System.out.println(~x+1);
         System.out.println(-x);
+
+
+//        n(even) ^ n+1     ==  1;
+//
+//        n(even) ^ 1     ==  n+1;
+
+//        n ^ n == 0
+//        n ^ 0 == n
     }
 }
