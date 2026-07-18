@@ -1,4 +1,4 @@
-package DynamicProgramming;
+package DynamicProgramming_Memo;
 
 import java.util.*;
 class MinCostClimbingStairs {

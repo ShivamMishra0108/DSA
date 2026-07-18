@@ -1,4 +1,4 @@
-package DynamicProgramming;
+package DynamicProgramming_Memo;
 
 class FibonacciNumber {
     int [] dp;
