@@ -1,4 +1,4 @@
-package DP_KnapSack;
+package DP_String;
 
 public class LongestCommonSubsequence {
     public int longestCommonSubsequence(String a, String b) {

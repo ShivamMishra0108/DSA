@@ -1,4 +1,4 @@
-package DP_KnapSack;
+package DP_String;
 
 public class InsertiontoMakePalindrome {
     public int minInsertions(String s) {

@@ -1,11 +1,7 @@
-package DP_KnapSack;
+package DP_String;
 
-public class DeletiontoMakePalindrome {
-    public int minDeletions(String s) {
-        return s.length() - lps(s);
-    }
-
-    public int lps(String s) {
+public class LongestPalindromicSubsequence {
+    public int longestPalindromeSubseq(String s) {
         StringBuilder a = new StringBuilder(s);
         StringBuilder b = new StringBuilder(s);
         b = b.reverse();
