@@ -8,6 +8,7 @@ public class HouseRobber2 {
         if(n==1)return arr[0];
         if (n == 2) return Math.max(arr[0], arr[1]);
 
+
         int [] dp = new int [3];
 
         dp[0] = arr[0];
@@ -15,17 +16,21 @@ public class HouseRobber2 {
 
         for(int i=2; i<n-1; i++){
             dp[2] = Math.max(arr[i]+dp[0],dp[1]);
+            dp[0] = dp[1];
+            dp[1] = dp[2];
         }
-        int first =dp[2];
+        int first =dp[1];
 
         dp = new int [3];
         dp[0] = arr[1];
         dp[1] = Math.max(arr[1],arr[2]);
 
         for(int i=2; i<n-1; i++){
-            dp[i] = Math.max(arr[i+1]+dp[0],dp[1]);
+            dp[2] = Math.max(arr[i+1]+dp[0],dp[1]);
+            dp[0] = dp[1];
+            dp[1] = dp[2];
         }
-        int second =dp [2];
+        int second =dp[1];
 
         return Math.max(first,second);
     }

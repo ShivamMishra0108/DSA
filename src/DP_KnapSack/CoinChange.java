@@ -1,4 +1,4 @@
-package DynamicProgramming_Memo;
+package DP_KnapSack;
 
 public class CoinChange {
     public int coinChange(int[] coins, int amount) {

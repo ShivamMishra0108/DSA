@@ -1,7 +1,7 @@
-package DynamicProgramming_Memo;
+package DP_KnapSack;
 
-public class KnapsackDuplicateItem {
-    public int knapSack(int val[], int wt[], int capacity) {
+public class KnapsackProblem {
+    public int knapsack(int capacity, int val[], int wt[]) {
         int n = val.length;
         int [][] dp = new int[n][capacity+1];
         return helper(0,capacity,val,wt,dp);
@@ -13,9 +13,8 @@ public class KnapsackDuplicateItem {
         if(dp[i][capacity] !=0) return dp[i][capacity];
         int skip = helper(i+1,capacity,val,wt,dp);
         if(capacity<wt[i]) return dp[i][capacity] = skip;
-        int pick = val[i] + helper(i,capacity-wt[i],val,wt,dp);
+        int pick = val[i] + helper(i+1,capacity-wt[i],val,wt,dp);
 
         return dp[i][capacity] =Math.max(pick,skip);
-
     }
 }
